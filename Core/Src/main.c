@@ -80,13 +80,11 @@ int main(void)
 	printf("|                 W25QXX & LittleFS Demo               |\r\n");
 	printf("+------------------------------------------------------+\r\n");
 	
-	while (W25QXX_Init() < 0)
-	{
-		printf(" W25QXX Init Failed !\r\n");
-		HAL_Delay(1000);
-	}
+	W25QXX_Init();
 	
-	printf(" W25QXX Init OK !\r\n");
+	printf(" W25QXX ID   :0X%0X\r\n", W25QXX_TYPE);
+
+	printf(" W25QXX SIZE :%d\r\n", W25QXX_SIZE);
 	
 	lfs_test();
 	

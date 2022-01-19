@@ -49,11 +49,7 @@ int W25QXX_Init(void)
     W25QXX_TYPE = W25QXX_ReadID();          // 读取FLASH ID.
 	W25QXX_SIZE = W25QXX_ReadCapacity();    // 读取容量
 	W25QXX_ReadUniqueID(W25QXX_UID);        // 读取唯一ID
-	if((W25QXX_TYPE & 0XEF00) != 0XEF00)
-	{
-		return -1;
-	}
-	return 0;
+	return W25QXX_TYPE;
 }
 
 //读取W25QXX的状态寄存器
